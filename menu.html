@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bingo!</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="main.js"></script>
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+    <!-- MENU -->
+    <div class="escoger-jugadores-menu">
+        <div class="escoger-jugadores">
+            <label for="jugadores" class="label-jugadores">Escoge los jugadores:</label>
+
+            <div class="opciones-jugadores">
+                <select id="jugador1" name="jugadores" title="Jugador 1"></select>
+                <select id="jugador2" name="jugadores" title="Jugador 2"></select>
+                <select id="jugador3" name="jugadores" title="Jugador 3"></select>
+                <select id="jugador4" name="jugadores" title="Jugador 4"></select>
+            </div>
+        </div>
+
+        <div class="nuevo-jugador">
+            <div class="input-nuevo-jugador">
+                <input type="text" id="nuevoJugador" class="nombre-nuevo-jugador" placeholder="Nuevo jugador">
+                <button class="registrar" onclick="agregarNuevoJugador()">Registrar</button>
+            </div>
+        </div>
+
+        <div class="carton-size-select">
+            <h class="escoger-tamano">Escoge el tamaño del carton:</h>
+            <select name="carton-size" id="carton-size">
+                <option value="3">3x3</option>
+                <option value="4">4x4</option>
+                <option value="5">5x5</option>
+            </select>
+        </div>
+
+        <div class="comenzar-partida">
+            <button class="jugar" onclick="crearCarton()">Comenzar partida</button>
+        </div>
+
+        <div class="go-back">
+            <button class="go-back-btn" onclick="window.location.href='index.html'">Atras</button>
+        </div>
+
+    </div>
+
+    <script>
+        // Buscar jugadores registrados o crear un array si no hay ninguno
+        var players = JSON.parse(localStorage.getItem("players")) || [];
+
+        // Update el select de los jugadores
+        function updateOpcionesJugadores() {
+            for (var i = 1; i <= 4; i++) {
+                var selector = document.getElementById("jugador" + i);
+                selector.innerHTML = ""; // Limpiar opciones
+
+                // Agregar una opción nueva a cada jugador
+                players.forEach(function (player) {
+                    var nuevoOption = document.createElement("option");
+                    nuevoOption.value = player;
+                    nuevoOption.text = player;
+                    selector.appendChild(nuevoOption);
+                });
+            }
+        }
+
+        // Llamar a la función
+        document.addEventListener('DOMContentLoaded', function () {
+            updateOpcionesJugadores();
+        });
+
+        // Función para agregar un nuevo jugador
+        function agregarNuevoJugador() {
+            var nuevoJugador = document.getElementById("nuevoJugador").value;
+
+            if (nuevoJugador.trim() === "") {
+                alert("Por favor ingresa un nombre válido para el nuevo jugador");
+                return;
+            }
+
+            // Check si el jugador ya esta registrado
+            if (players.includes(nuevoJugador)) {
+                alert("Este jugador ya está registrado");
+                return;
+            }
+
+            // Agregar nuevo jugador al array
+            players.push(nuevoJugador);
+
+            // Guardar los jugadores en local storage
+            localStorage.setItem("players", JSON.stringify(players));
+
+            // Update select
+            updateOpcionesJugadores();
+
+            // Limpiar input
+            document.getElementById("nuevoJugador").value = "";
+        }
+    </script>
+</body>
+</html>

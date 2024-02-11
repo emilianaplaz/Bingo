@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bingo!</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="main.js"></script>
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <div class="numero-random-container"> 
+        <!-- espacio para que se muestre el número random -->
+        <p id="numero-bingo"></p> 
+        <!-- boton para mostrar el numero -->
+        <button id="random-number" class="random-number" onclick="getRandomNumber()">Empezar</button>
+        <!-- espacio para llevar la cuenta de los turnos -->
+        <p id="turnos-counter" class="turnos">Turno <span id="turno-actual">1</span>/25</p> 
+        <!-- espacio para mostrar el nombre del jugador del cual se esta viendo el cartón -->
+        <h1 id="nombre-jugador" class="nombre-jugador"></h1>   
+    </div>
+
+    
+    <div class="carton-container">
+        <!-- espacio para crear los cartones-->
+        <div id="cartones-bingo"></div>
+    <div>
+    <div class="info-partida">
+        <h class="puntaje-actual">puntos</h>
+        <div id="next-jugador-container">
+            <label for="next-jugador">Seleccionar Jugador:</label>
+            <select id="player-select" class="player-select" onchange="showSelectedPlayerCarton()"></select>
+    </div>   
+
+    <div class="go-back">
+        <button class="go-back-btn" onclick="window.location.href='index.html'">Salir</button>
+    </div>
+
+  
+
+    
+    
+</body>
+</html>

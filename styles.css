@@ -1,0 +1,341 @@
+/* START MENU */
+body {
+    background-color: #E8D0D8
+
+}
+
+.container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+}
+
+.header{ 
+    display: flex;
+    justify-content: center;
+    width: 400px;
+    border-radius: 100px;
+    padding: 10px;
+    transform: translateY(80px);
+    text-align: center;
+} 
+
+.main-title{
+    font-family: "Oi", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 70px;
+    /* color: rgb(203, 226, 247); */
+    color: #D75834
+}
+
+.start-menu {
+    padding: 20px;
+    display: flex;
+    width: 380px;
+    height: 250px;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+}
+
+/* botones inicio */
+
+.nueva-partida,
+.ver-historial{
+    border-radius: 50px;
+    width: 360px;
+    height: 50px;
+    font-family: "Acme", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 28px;
+    margin: 15px;
+    border: none;
+    background-color:#D75834;
+    color: white
+
+
+}
+
+.nueva-partida:hover,
+.ver-historial:hover{
+    transform: scale(1.05);
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.nueva-partida:active,
+.ver-historial:active{
+    transform: scale(1.05);
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+
+
+/* MENU */
+
+.escoger-jugadores-menu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    font-family: "Acme", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 28px;
+    color: white;
+}
+
+.escoger-jugadores-menu > * {
+    margin-bottom: 10px; 
+}
+
+.label-jugadores{
+    color:#D75834;
+
+}
+
+.escoger-jugadores,
+.nuevo-jugador{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.opciones-jugadores {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.opciones-jugadores select {
+    padding: 4px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    margin-right: 10px; 
+}
+
+.input-nuevo-jugador{
+    display: flex;
+    flex-direction: row;
+    margin: 30px;
+}
+
+.escoger-tamano{
+    color: #D75834;
+}
+
+#carton-size{
+    padding: 4px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    margin-right: 10px; 
+}
+
+
+
+/* boton nuevo jugador */
+
+.jugar{
+    border-radius: 50px;
+    width: 200px;
+    height: 50px;
+    font-family: "Acme", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 20px;
+    margin: 15px;
+    border: none;
+    background-color: #D75834;
+    color: white;
+}
+
+.jugar:hover{
+    transform: scale(1.05);
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+
+/* input nuevo jugador */
+
+.input-nuevo-jugador{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.nombre-nuevo-jugador{
+    font-family: "Acme", sans-serif;
+    font-weight: 200;
+    border: none;
+    border-radius: 50px;
+    width: 300px;
+    height: 30px;
+}
+
+/* boton registrar */
+.registrar{
+    border-radius: 50px;
+    width: 30%;
+    height: 55%;
+    font-family: "Acme", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 20px;
+    margin: 15px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.598);
+    color: black;
+}
+
+.registrar:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+    color: #D75834;
+}
+
+/* CARTONES */
+
+/* numero bingo */
+.numero-random-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Acme", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 28px;
+    text-align: center;
+}
+
+#numero-bingo {
+    border-radius: 100px;
+    border: 5px solid #D75834;
+    width: 100px;
+    height: 100px;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    font-size: 40px ; 
+    color: #D75834;
+    background-color: rgba(255, 255, 255, 0.622);
+
+}
+
+.random-number{
+    font-family: "Acme", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 20px;
+
+}
+
+
+/* carton bingo */
+.carton-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-family: "Acme", sans-serif;
+    font-style: normal;
+    font-size: 30px;
+}
+
+/* label jugador */
+
+
+/* carton */
+
+
+.carton-container {
+    display: grid;
+    gap: 5px; 
+}
+
+.row-container {
+    display: flex;
+}
+
+.cell {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    background-color: #fff;
+    flex: 1; 
+}
+
+/* info partida */
+.info-partida{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 20px;
+}
+
+
+/* player-select */
+
+.player-select{
+    border-radius: 50px;
+    width: 180px;
+    height: 30px;
+    font-family: "Acme", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 20px;
+    margin: 15px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.622);
+}
+
+.player-select:hover{
+    color: #D75834;
+}
+
+
+
+
+/* boton turnos */
+.random-number{
+    border-radius: 50px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.622);
+}
+
+.random-number:hover{
+    border-radius: 50px;
+    border: none;
+    transform: scale(1.05);
+    cursor: pointer;
+    color: #D75834;
+    
+    
+}
+
+
+
+
+
+
+
+
+
+    
+
+
+
