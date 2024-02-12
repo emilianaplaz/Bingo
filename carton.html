@@ -32,15 +32,12 @@
         <div id="cartones-bingo"></div>
     <div>
     <div class="info-partida">
-        <h class="puntaje-actual">puntos</h>
-        <div id="next-jugador-container">
-            <label for="next-jugador">Seleccionar Jugador:</label>
-            <select id="player-select" class="player-select" onchange="showSelectedPlayerCarton()"></select>
+        <p class="puntaje-actual">Puntos: <span id="puntaje-jugador">0</span></p> 
+        <select id="player-select" class="player-select"></select>
+        <button class="salir-btn" onclick="window.location.href='index.html'">Salir</button>
+
     </div>   
 
-    <div class="go-back">
-        <button class="go-back-btn" onclick="window.location.href='index.html'">Salir</button>
-    </div>
 
   
 

@@ -25,19 +25,11 @@ function crearCarton() {
 var turno = 1;
 var totalJugadores=4;
 
-var celdasResaltadas = {
-    jugador1: [],
-    jugador2: [],
-    jugador3: [],
-    jugador4: []
-};
 
-
-// MOSTRAR UN CARTON A LA VEZ
+// MOSTRAR CARTONES 
 document.addEventListener('DOMContentLoaded', function() {
     showAllCartons();
     llenarPlayerSelect();
-    showDefaultCarton();
 });
 
 function showAllCartons() {
@@ -49,8 +41,15 @@ function showAllCartons() {
 
         if (carton) {
             // Crear container para los cartones
-            var cartonContainer = document.createElement('div');
-            cartonContainer.className = 'carton-container' + jugador;
+            var cartonContainer = document.createElement('div'); //Crear espacio para cada carton
+            cartonContainer.className = 'player-carton';
+            cartonContainer.id = 'player-carton-' + jugador;
+            cartonContainer.style.margin = '10px'; 
+
+            // Crear título para el carton dependiendo del jugador
+            var nombreJugador = document.createElement('h2');
+            nombreJugador.textContent = "Jugador " + jugador;
+            cartonContainer.appendChild(nombreJugador);
 
             var cartonIndividual = JSON.parse(carton);
 
@@ -74,6 +73,7 @@ function showAllCartons() {
     }
 }
 
+//LLENAR EL SELECT CON LAS OPCIONES DE JUGADORES
 function llenarPlayerSelect() {
     var playerSelect = document.getElementById("player-select");
     var totalJugadores = 4;
@@ -86,36 +86,23 @@ function llenarPlayerSelect() {
     }
 }
 
-function showSelectedPlayerCarton() {
-    var playerSelect = document.getElementById("player-select");
-    var selectedPlayer = parseInt(playerSelect.value);
-    var cartonContainers = document.querySelectorAll('.carton-container');
-    var nombreJugador = document.getElementById("nombre-jugador");
+var puntajeJugador1 = 0;
+var puntajeJugador2 = 0;
+var puntajeJugador3 = 0;
+var puntajeJugador4 = 0;
 
-    // Hide all carton containers
-    cartonContainers.forEach(function(container) {
-        container.style.display = 'none';
-    });
-
-    // Show the selected player's carton container
-    cartonContainers[selectedPlayer - 1].classList.add('active');
-    nombreJugador.textContent= "Jugador" + selectedPlayer;
-}
-
-function showDefaultCarton() {
-    // Show the first carton container by default
-    var cartonContainers = document.querySelectorAll('.carton-container');
-    cartonContainers[0].classList.add('active');
-}
-    
-     
-
+var celdasResaltadas = {
+    jugador1: [],
+    jugador2: [],
+    jugador3: [],
+    jugador4: []
+};
 
 
 function getRandomNumber() {
     document.getElementById("random-number").textContent = "Siguiente";
     
-    if (turno <= 50) {
+    if (turno <= 25) {
         var randomnumber = Math.floor(Math.random() * 50);
         document.getElementById("numero-bingo").textContent = randomnumber;
         document.getElementById("turno-actual").textContent = turno;
@@ -133,68 +120,24 @@ function getRandomNumber() {
 
                 // Cambiar estilo de la celda
                 celda.style.backgroundColor = "pink";
-                checkRow(jugador);
             }
         });
         turno++;
         
-        // if (turno > 25) {
-        //     document.getElementById("random-number").disabled = true;
-        //     document.getElementById("random-number").textContent = "Juego terminado";
-        //     alert("Juego terminado");
-        // }
+        if (turno > 25) {
+             document.getElementById("random-number").disabled = true;
+             document.getElementById("random-number").textContent = "Juego terminado";
+            alert("Juego terminado");
+         }
     }
 }
 
-var puntajeJugador1 = 0;
-var puntajeJugador2 = 0;
-var puntajeJugador3 = 0;
-var puntajeJugador4 = 0;
 
-function checkRow(jugador) {
-    var cells = celdasResaltadas[jugador];
-    var cartonSize = 4; // Assuming each carton has 4 rows and 4 columns
 
-    // Check each row for a win
-    for (var i = 0; i < cartonSize; i++) {
-        var cellsInRow = cells.filter(function (cell) {
-            var rowIndex = parseInt(cell.dataset.rowIndex);
-            return rowIndex === i && cell.style.backgroundColor === "pink";
-            
-        });
 
-        
 
-        // If all cells in the row are highlighted, increment the player's points
-        if (cellsInRow.length === cartonSize) {
-            if (jugador === 'jugador1') {
-                puntajeJugador1++;
-            } else if (jugador === 'jugador2') {
-                puntajeJugador2++;
-            } else if (jugador === 'jugador3') {
-                puntajeJugador3++;
-            } else if (jugador === 'jugador4') {
-                puntajeJugador4++;
-            } else {
-                console.error("Invalid jugador:", jugador);
-            }
 
-            console.log("Row win for jugador", jugador);
-            break; // Exit the loop after finding a win to avoid double-counting
-        }
-    }
 
-    // console.log("Updated puntajes:", getPuntajes());
-}
-
-function getPuntajes() {
-    return {
-        jugador1: puntajeJugador1,
-        jugador2: puntajeJugador2,
-        jugador3: puntajeJugador3,
-        jugador4: puntajeJugador4
-    };
-}
 
 
 

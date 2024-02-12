@@ -183,8 +183,10 @@ body {
     height: 30px;
 }
 
-/* boton registrar */
-.registrar{
+/* boton registrar y boton atras*/
+.registrar,
+.go-back-btn,
+.salir-btn{
     border-radius: 50px;
     width: 30%;
     height: 55%;
@@ -198,15 +200,30 @@ body {
     color: black;
 }
 
-.registrar:hover{
+.salir-btn{
+    width:80%
+}
+
+.go-back-btn{
+    width:100%;
+}
+
+.registrar:hover,
+.go-back-btn:hover,
+.salir-btn:hover{
     transform: scale(1.05);
     cursor: pointer;
     color: #D75834;
 }
 
+
+
+
+
+
 /* CARTONES */
 
-/* numero bingo */
+/* numero random bingo */
 .numero-random-container {
     display: flex;
     flex-direction: column;
@@ -252,17 +269,7 @@ body {
     font-family: "Acme", sans-serif;
     font-style: normal;
     font-size: 30px;
-}
-
-/* label jugador */
-
-
-/* carton */
-
-
-.carton-container {
-    display: grid;
-    gap: 5px; 
+    margin-bottom: 20px;
 }
 
 .row-container {
@@ -274,17 +281,24 @@ body {
     padding: 10px;
     border: 1px solid #000;
     border-radius: 5px;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.622);
     flex: 1; 
 }
 
 /* info partida */
 .info-partida{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     font-size: 20px;
+}
+
+#next-jugador-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 
@@ -326,6 +340,8 @@ body {
     
     
 }
+
+
 
 
 
